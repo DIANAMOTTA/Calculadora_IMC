@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags padrão para configuração do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade -->
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Calculadora IMC</title>
+</head>
+
+<body>
+    <!--
+        <main> - Tag semântica que indica o conteúdo principal da página
+        Todo o conteúdo da calculadora está dentro desta tag
+    -->
+    <main>
+        <!--
+            .container - Classe que provavelmente engloba todo o conteúdo da calculadora
+            Normalmente usada para centralizar e limitar a largura do conteúdo
+        -->
+        <div class="container">
+            <!--
+                .title - Classe para o título principal da calculadora
+                Normalmente usada para estilizar o texto do título
+            -->
+            <div class="title">Calculadora de IMC</div>
+
+            <!--
+                .input - Classe que engloba cada grupo de label + input
+                Usada para estilizar o espaçamento e layout de cada campo do formulário
+            -->
+            <div class="input">
+                <label>Nome:</label> <!-- Label descritivo para o campo de nome -->
+                <!--
+                    #nome - ID do campo de entrada para o nome
+                    Usaremos este ID no JavaScript para pegar o valor digitado
+                    type="text" - Define que é um campo de texto simples
+                -->
+                <input type="text" id="nome">
+            </div>
+
+            <div class="input">
+                <label>Peso:</label> <!-- Label descritivo para o campo de peso -->
+                <!--
+                    #peso - ID do campo de entrada para o peso
+                    type="number" - Define que é um campo numérico
+                    Permite apenas números e mostra controles de incremento em alguns navegadores
+                -->
+                <input type="number" id="peso">
+            </div>
+
+            <div class="input">
+                <label>Altura:</label> <!-- Label descritivo para o campo de altura -->
+                <!--
+                    #altura - ID do campo de entrada para a altura
+                    type="number" - Campo numérico (em metros ou centímetros, dependendo da implementação)
+                -->
+                <input type="number" id="altura">
+            </div>
+
+            <!--
+                #calcular - ID do botão que dispara o cálculo
+                No JavaScript, vamos adicionar um event listener para este ID
+            -->
+            <button id="calcular">Calcular</button>
+
+            <!--
+                .result - Classe para estilizar a área de resultado
+                #resultado - ID onde o resultado do IMC será exibido
+                Esta div começa vazia e será preenchida via JavaScript
+                As classes de cor (result-normal, result-warning, etc.) serão adicionadas dinamicamente
+            -->
+            <div class="result" id="resultado"></div>
+    </main>
+
+    <!-- Script JavaScript externo que contém a lógica da calculadora -->
+    <script src="./imc.js"></script>
+</body>
+</html>

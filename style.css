@@ -1,0 +1,217 @@
+/* 
+ * Variáveis CSS globais (custom properties)
+ * Facilitam a manutenção e consistência do design
+ */
+ :root {
+    --primary-color: #4a6fa5;       /* Cor primária (azul) */
+    --secondary-color: #6b8cae;     /* Cor secundária (azul mais claro) */
+    --accent-color: #ff7e5f;        /* Cor de destaque (laranja) */
+    --light-color: #f8f9fa;         /* Cor clara para fundos */
+    --dark-color: #343a40;          /* Cor escura para textos */
+    --success-color: #28a745;       /* Cor para indicar sucesso (verde) */
+    --warning-color: #ffc107;       /* Cor para alertas (amarelo) */
+    --danger-color: #dc3545;        /* Cor para erros/perigo (vermelho) */
+    --border-radius: 15px;          /* Raio padrão para bordas arredondadas */
+    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra padrão */
+}
+
+/* Reset básico para todos os elementos */
+* {
+    margin: 0;                     /* Remove margens padrão */
+    padding: 0;                    /* Remove paddings padrão */
+    box-sizing: border-box;        /* Faz padding e border serem incluídos na largura */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão */
+}
+
+/* Estilos para o corpo da página */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); /* Gradiente suave */
+    min-height: 100vh;             /* Garante que o body ocupe toda a altura da tela */
+    display: flex;                 /* Ativa flexbox para centralização */
+    justify-content: center;       /* Centraliza horizontalmente */
+    align-items: center;           /* Centraliza verticalmente */
+    padding: 20px;                 /* Espaçamento interno */
+}
+
+/* Container principal do conteúdo */
+main {
+    width: 100%;                   /* Ocupa toda a largura disponível */
+    max-width: 500px;              /* Mas não ultrapassa 500px */
+}
+
+/* Estilo do container do formulário */
+.container {
+    background: white;             /* Fundo branco */
+    border-radius: var(--border-radius); /* Bordas arredondadas */
+    box-shadow: var(--box-shadow); /* Sombra aplicada */
+    padding: 30px;                 /* Espaçamento interno */
+    transition: all 0.3s ease;     /* Transição suave para hover */
+}
+
+/* Efeito quando o mouse passa sobre o container */
+.container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+/* Estilo do título principal */
+.title {
+    font-size: 28px;               /* Tamanho da fonte */
+    font-weight: 700;              /* Peso da fonte (negrito) */
+    color: var(--primary-color);   /* Cor usando a variável */
+    text-align: center;            /* Centraliza o texto */
+    margin-bottom: 25px;           /* Espaço abaixo do título */
+    position: relative;            /* Permite posicionamento absoluto do pseudo-elemento */
+    padding-bottom: 10px;          /* Espaço para a linha decorativa */
+}
+
+/* Linha decorativa abaixo do título */
+.title::after {
+    content: '';                   /* Necessário para pseudo-elementos */
+    position: absolute;            /* Posicionamento absoluto relativo ao título */
+    bottom: 0;                     /* Alinha na base do título */
+    left: 50%;                     /* Centraliza horizontalmente */
+    transform: translateX(-50%);   /* Ajuste fino para centralização perfeita */
+    width: 80px;                   /* Largura da linha */
+    height: 3px;                   /* Altura da linha */
+    background: var(--accent-color); /* Cor usando variável */
+    border-radius: 3px;            /* Borda levemente arredondada */
+}
+
+/* Estilo para cada grupo de input */
+.input {
+    margin-bottom: 20px;           /* Espaço entre os campos */
+}
+
+/* Estilo das labels */
+.input label {
+    display: block;                /* Faz ocupar toda a linha */
+    margin-bottom: 8px;            /* Espaço entre label e input */
+    font-weight: 600;              /* Texto em negrito */
+    color: var(--dark-color);      /* Cor do texto */
+}
+
+/* Estilo dos campos de entrada */
+.input input {
+    width: 100%;                   /* Ocupa toda a largura disponível */
+    padding: 12px 15px;            /* Espaçamento interno */
+    border: 2px solid #e1e5ee;     /* Borda sutil */
+    border-radius: var(--border-radius); /* Bordas arredondadas */
+    font-size: 16px;               /* Tamanho da fonte */
+    transition: all 0.3s ease;     /* Transição suave para foco */
+}
+
+/* Estilo quando o input está em foco */
+.input input:focus {
+    border-color: var(--primary-color); /* Muda cor da borda */
+    outline: none;                 /* Remove outline padrão */
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2); /* Sombra sutil */
+}
+
+/* Estilo do botão calcular */
+button#calcular {
+    width: 100%;                   /* Largura total */
+    padding: 14px;                 /* Espaçamento interno */
+    background: var(--accent-color); /* Cor de destaque */
+    color: white;                  /* Texto branco */
+    border: none;                  /* Sem borda */
+    border-radius: var(--border-radius); /* Bordas arredondadas */
+    font-size: 18px;               /* Tamanho da fonte */
+    font-weight: 600;              /* Peso da fonte */
+    cursor: pointer;               /* Cursor de ponteiro */
+    transition: all 0.3s ease;     /* Transição suave */
+    text-transform: uppercase;     /* Texto em maiúsculas */
+    letter-spacing: 1px;           /* Espaçamento entre letras */
+    margin-top: 10px;              /* Espaço acima do botão */
+}
+
+/* Efeito hover no botão */
+button#calcular:hover {
+    background: #ff6a45;           /* Cor mais escura */
+    transform: translateY(-2px);   /* Levanta levemente */
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4); /* Sombra colorida */
+}
+
+/* Efeito quando o botão é clicado */
+button#calcular:active {
+    transform: translateY(0);      /* Volta à posição original */
+}
+
+/* Estilo padrão do resultado */
+.result {
+    margin-top: 25px;              /* Espaço acima */
+    padding: 20px;                 /* Espaçamento interno */
+    border-radius: 5px;            /* Bordas levemente arredondadas */
+    background: rgb(185, 185, 189); /* Cor de fundo */
+    text-align: center;            /* Centraliza o texto */
+    font-size: 18px;               /* Tamanho da fonte */
+    min-height: 60px;              /* Altura mínima */
+    display: flex;                 /* Ativa flexbox */
+    align-items: center;           /* Centraliza verticalmente */
+    justify-content: center;       /* Centraliza horizontalmente */
+    transition: all 0.3s ease;     /* Transição suave */
+}
+
+/* Classes para diferentes tipos de resultados */
+.result-normal {
+    background-color: rgba(40, 167, 69, 0.1) !important; /* Fundo verde claro */
+    border-left: 5px solid var(--success-color); /* Borda lateral verde */
+    color: #000000;                /* Cor do texto */
+    text-align: center;            /* Centraliza texto */
+    margin-top: 25px;              /* Espaço acima */
+    padding: 20px;                 /* Espaçamento interno */
+}
+
+.result-cuidado {
+    background-color: rgba(255, 193, 7, 0.1) !important; /* Fundo amarelo claro */
+    border-left: 5px solid var(--warning-color); /* Borda lateral amarela */
+    color: #000000;                /* Cor do texto */
+    text-align: center;            /* Centraliza texto */
+    margin-top: 25px;              /* Espaço acima */
+    padding: 20px;                 /* Espaçamento interno */
+}
+
+.result-perigo {
+    background-color: rgba(220, 53, 69, 0.1) !important; /* Fundo vermelho claro */
+    border-left: 5px solid var(--danger-color); /* Borda lateral vermelha */
+    color: #000000;                /* Cor do texto */
+    text-align: center;            /* Centraliza texto */
+    margin-top: 25px;              /* Espaço acima */
+    padding: 20px;                 /* Espaçamento interno */
+}
+
+/* Animação de aparecimento suave */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;                /* Inicia invisível */
+        transform: translateY(10px); /* Começa 10px abaixo */
+    }
+    to { 
+        opacity: 1;                /* Termina totalmente visível */
+        transform: translateY(0);  /* Volta à posição normal */
+    }
+}
+
+/* Aplica a animação ao resultado */
+#result {
+    animation: fadeIn 0.5s ease-out; /* Duração e curva de animação */
+}
+
+/* Estilos responsivos para telas menores que 576px */
+@media (max-width: 576px) {
+    .container {
+        padding: 20px;             /* Reduz o padding */
+    }
+    
+    .title {
+        font-size: 24px;           /* Reduz tamanho da fonte */
+    }
+    
+    .input input {
+        padding: 10px 12px;        /* Reduz padding dos inputs */
+    }
+    
+    button#calcular {
+        padding: 12px;             /* Reduz padding do botão */
+        font-size: 16px;           /* Reduz tamanho da fonte */
+    }
+}
